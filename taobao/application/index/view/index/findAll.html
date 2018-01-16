@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="__PUBLIC__/style/bootstrap.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+<a href="{:url('index')}">主页</a><hr/>
+{volist name="results" id="result"}
+  id:{$result.id}<br/>
+名称：{$result.name}<br/>
+链接：<a href="{$result.link}">{$result.link}</a><br/>
+密码：{$result.password}<br/>
+备注：{$result.notes}<br/>
+<a href="{:url('edit',array('id'=>$result['id'],'page'=>$page))}">修改</a>
+<a href="{:url('delete',array('id'=>$result['id'],'page'=>$page))}">删除</a>
+<a href="{:url('wrong',array('id'=>$result['id'],'page'=>$page))}">错误</a>
+<hr/>
+{/volist}
+{$results->render()}
+
+</body>
+</html>
